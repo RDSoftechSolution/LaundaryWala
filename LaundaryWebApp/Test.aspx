@@ -12,7 +12,7 @@
      <link rel="stylesheet" href="Style/kendo/kendo.default.min.css" />
     <link rel="stylesheet" href="Style/kendo/kendo.default.mobile.min.css" />
 </head>
-    
+     
 <body>
         <div id="example">
             <div class="box wide">
