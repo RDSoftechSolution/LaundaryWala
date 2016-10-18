@@ -10,7 +10,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <!-- Css Files -->
-    <%--<script src="Script/bootstrap.js"></script>--%>
+    <%--<script src="Script/bootstrap.js"></script>--%> 
     
     <link href="../Style/bootstrap.css" rel="stylesheet" />
     <link href="../Style/bootstrap.css" rel="stylesheet" type="text/css">   
