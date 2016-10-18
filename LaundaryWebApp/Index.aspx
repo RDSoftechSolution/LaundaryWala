@@ -13,7 +13,7 @@
     <%--<script src="Script/bootstrap.js"></script>--%>
     
     <link href="../Style/bootstrap.css" rel="stylesheet" />
-    <link href="../Style/bootstrap.css" rel="stylesheet" type="text/css">  
+    <link href="../Style/bootstrap.css" rel="stylesheet" type="text/css">   
     <link href="../Style/plugins.css" rel="stylesheet" type="text/css">
     <link href="../Style/homePopup.css" rel="stylesheet" type="text/css" />
     <link href="../Style/style.css" rel="stylesheet" type="text/css">
