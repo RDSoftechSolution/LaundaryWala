@@ -19,9 +19,12 @@ function calculateScroll() {
 	var winTop      =   $(window).scrollTop();
 	var rangeTop    =   200;
 	var rangeBottom =   500;
-	$('.navmenu li.scrollable').find('a').each(function(){
-		contentTop.push( $( $(this).attr('href') ).offset().top );
-		contentBottom.push( $( $(this).attr('href') ).offset().top + $( $(this).attr('href') ).height() );
+	$('.navmenu li.scrollable').find('a').each(function () {
+	    debugger
+	    if ($(this).html() != "LogOut") {
+	        contentTop.push($($(this).attr('href')).offset().top);
+	        contentBottom.push($($(this).attr('href')).offset().top + $($(this).attr('href')).height());
+	    }
 	})
 	$.each( contentTop, function(i){
 		if ( winTop > contentTop[i] - rangeTop && winTop < contentBottom[i] - rangeBottom ){

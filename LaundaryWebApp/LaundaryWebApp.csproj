@@ -58,6 +58,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="images\User.png" />
     <Content Include="Scripts\angular-animate.js" />
     <Content Include="Scripts\angular-animate.min.js" />
     <Content Include="Scripts\angular-aria.js" />
@@ -1390,6 +1391,7 @@
     <Content Include="Script\kendo\messages\kendo.messages.zh-HK.min.js" />
     <Content Include="Script\kendo\messages\kendo.messages.zh-TW.min.js" />
     <Content Include="Script\kendo\pako_deflate.min.js" />
+    <Content Include="Script\Menu\MenuController.js" />
     <Content Include="Script\Order\OrderService.js" />
     <Content Include="Script\Registration\BaseController.js" />
     <Content Include="Script\Registration\registrationModule.js" />
