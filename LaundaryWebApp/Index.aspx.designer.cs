@@ -22,13 +22,13 @@ namespace LaundaryWebApp {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// li_Order control.
+        /// hdnSession control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl li_Order;
+        protected global::System.Web.UI.WebControls.HiddenField hdnSession;
         
         /// <summary>
         /// rd1 control.
@@ -40,40 +40,13 @@ namespace LaundaryWebApp {
         protected global::System.Web.UI.WebControls.HyperLink rd1;
         
         /// <summary>
-        /// rd2 control.
+        /// login control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink rd2;
-        
-        /// <summary>
-        /// rd3 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink rd3;
-        
-        /// <summary>
-        /// rd4 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink rd4;
-        
-        /// <summary>
-        /// order control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl order;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl login;
         
         /// <summary>
         /// btn_login control.

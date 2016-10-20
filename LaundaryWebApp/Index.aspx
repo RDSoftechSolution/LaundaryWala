@@ -12,7 +12,7 @@
     <!-- Css Files --> 
     <%--<script src="Script/bootstrap.js"></script>--%> 
     <%--<rami=u tag--%> 
-    
+     
     <link href="../Style/bootstrap.css" rel="stylesheet" />
     <link href="../Style/bootstrap.css" rel="stylesheet" type="text/css">   
     <link href="../Style/plugins.css" rel="stylesheet" type="text/css">
@@ -27,6 +27,7 @@
 
     <script src="Script/Registration/registrationModule.js"></script>
     <script src="Script/Registration/BaseController.js"></script>
+    <script src="Script/Menu/MenuController.js"></script>
        <script type="text/javascript" src="Script/Order/OrderService.js"></script>
     <script src="Script/Registration/registrationServices.js"></script>
 
@@ -95,6 +96,7 @@
 <body ng-app="app">
     <form id="form1" runat="server">
         <!-- Preloader -->
+        <asp:HiddenField ID="hdnSession" runat="server" ClientIDMode="Static" />
         <div id="preloader">
             <div id="status">
             </div>
@@ -111,21 +113,26 @@
 
                             <i class="fa fa-mobile" style="margin-left: 3%; color: blue;"></i>
                             <span style="color: #0066cc; font-style: italic; font-weight: bold;">9711226828</span>
+                           
                         </div>
 
                         <!-- menu -->
-                        <nav class="navmenu">
+                        <nav class="navmenu" ng-controller="menuCtrl">
                             <ul>
                                 <li class="scrollable"><a href="#topping">Home</a></li>
                                 <li class="scrollable"><a href="#about">About us</a></li>
-                                <li class="scrollable"><a href="#services">Services</a></li>
+                              
                                 <li class="scrollable"><a href="#pricing">Pricing</a></li>
                                 <li class="scrollable"><a href="#portfolio">Gallery</a></li>
                                 <li class="scrollable"><a href="#contact">Contact</a></li>
-                                <li class="scrollable" runat="server" id="li_Order"><a href="#order">Order</a></li>
-                                <li class="scrollable"><a href="#registration">Sign Up</a></li>
-                                <li class="scrollable"><a href="#login">Login</a></li>
+                                <li class="scrollable" ng-show="!visible"><a href="#order">Order</a></li>
+                              <li class="scrollable" ng-show="visible" ><a href="#registration">Sign Up</a></li>
+                                <li class="scrollable" ng-show="visible"><a href="#login">Login</a></li>
+                                 <li class="scrollable" ng-show="!visible">
+                                    <a href="#topping" runat="server" onserverclick="onLogout_ServerClick">LogOut</a></li>
+                                <img src="images/User.png" style="position: absolute;" ng-title="visible" runat="server"/>
                             </ul>
+                            
                         </nav>
                         <!-- end menu -->
                         <div class="clear"></div>
@@ -520,10 +527,6 @@
                               <div class="separator left"></div>
                                 </header>
                                 <p>Its works within your apartment/villa complex itself. We provide quality steam ironing equipment and trained staff to steam iron your clothes, what's more we have dedicated staff collect and deliver your clothes from your door step, at your convenience. just register yourself on www.dhobiwala.com and place a pickup request online whenever you need our service. Clothes for laundry & dry-cleaning services will be carefully inspected and tagged before sending them to our centralised-processing unit where the clothes get processed. The clothes are then carefully packd and transported back to your home in crates to protect them from wrinkles-thus avoiding the usage of any kind of packing materials such as plastic or cardboard boxes.</p>
-
-
-                                <%-- <p>Whether you're taking a long vacation, working abroad or just looking for something out of the ordinary, with a multi-city ticket from STA Travel, you can travel further and discover more of this amazing planet.</p> 
-							<p>Create a trip that is uniquely yours or choose from our sample Round the World and multi-stop routes. Whatever you're looking for, our travel experts can help you create your perfect multi-city adventure. </p>--%>
                                 <asp:HyperLink ID="rd1" class="shortcode_button" runat="server" NavigateUrl="#">Read More</asp:HyperLink>
                             </div>
                         </div>
@@ -531,67 +534,7 @@
                         <div class="clear"></div>
                     </div>
                 </div>
-                <!-- //section content -->
             </section>
-
-            <section class="page_section" id="services">
-                <div class="container block-wrap wow fadeInUp">
-                    <div class="row carousel-box">
-                        <div class="col-md-3">
-                            <div class="control-block bg_black block">
-                                <header class="head_section">
-                                    <div class="icon-write">
-                                        <i class="pe-5x pe-va pe-7s-diamond"></i>
-                                    </div>
-                                    <h2>Our FEATURED</h2>
-                                    SERVICES
-                              <div class="separator left"></div>
-                                </header>
-                                <p>Take a look at some of our favourite multi-stop and Round the World flights.</p>
-                                <p>We recommend the following order for journey and services:</p>
-                                <div class="customNavigation">
-                                    <a class="btn-prev"><i class="fa fa-angle-left"></i></a>
-                                    <a class="btn-next"><i class="fa fa-angle-right"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-9">
-                            <div class="owl-carousel">
-                                <div class="item-service block">
-                                    <img src="images/mal.jpg" alt="">
-                                    <div class="cont">
-                                        <h4>WHAT IS MULTI-STOP?</h4>
-                                        <div class="separator"></div>
-                                        <p>If you’re asking whether you’ll disappear into the ether if your ticket doesn’t complete a full circuit of the Earth, then the answer is ‘no’, you’re good.</p>
-                                        <asp:HyperLink ID="rd2" class="shortcode_button" runat="server" NavigateUrl="#">Read More</asp:HyperLink>
-
-                                    </div>
-                                </div>
-                                <div class="item-service block">
-                                    <img src="images/goa.jpg" alt="">
-                                    <div class="cont">
-                                        <h4>CAN I STILL BOOK?</h4>
-                                        <div class="separator"></div>
-                                        <p>If you’re asking whether you’ll disappear into the ether if your ticket doesn’t complete a full circuit of the Earth, then the answer is ‘no’, you’re good.</p>
-                                        <asp:HyperLink ID="rd3" class="shortcode_button" runat="server" NavigateUrl="#">Read More</asp:HyperLink>
-                                    </div>
-                                </div>
-                                <div class="item-service block">
-                                    <img src="images/ticket book.jpg" alt="">
-                                    <div class="cont">
-                                        <h4>FLY AROUND THE WORLD?</h4>
-                                        <div class="separator"></div>
-                                        <p>If you’re asking whether you’ll disappear into the ether if your ticket doesn’t complete a full circuit of the Earth, then the answer is ‘no’, you’re good.</p>
-                                        <asp:HyperLink ID="rd4" class="shortcode_button" runat="server" NavigateUrl="#">Read More</asp:HyperLink>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- end .container -->
-            </section>
-
             <section class="page_section" id="pricing">
                 <div class="container block-wrap wow fadeInUp">
                     <div class="row">
@@ -686,8 +629,8 @@
                 </div>
             </section>
 
-            <section class="page_section" id="order" runat="server"  >
-                <div class="container block-wrap wow fadeInUp"  ng-controller="orderCtrl">
+            <section class="page_section" id="order"   ng-controller="orderCtrl">
+                <div class="container block-wrap wow fadeInUp" ng-show="!visible">
                     <div class="row">
                         {{messages}}
                         <div class="col-md-12 contact_form block">
@@ -884,62 +827,9 @@
                         <div class="app-item"><a class="shortcode_button add-item">Load More</a></div>
                     </div>
                 </div>
-                <!-- //section content -->
             </section>
 
-            <section class="page_section">
-                <div class="container wow fadeInUp">
-                    <div class="pricing_block bg_gray">
-                        <header class="head_section center_section">
-                            <h2>Our Packages</h2>
-                            <div class="separator"></div>
-                            <p>Indulge in one of our packages and enjoy a stay filled with our most popular Style Hotels.</p>
-                        </header>
-                        <div class="price-item">
-                            <div class="type">One Day Tour Travel Package</div>
-                            <div class="pricelist">$120 month</div>
-                            <div class="cont">
-                                <ul>
-                                    <li>Deluxe accommodation</li>
-                                    <li>Hot Stones flys</li>
-                                    <li>Body Style Hotels</li>
-                                    <li>Hydrohotel</li>
-                                    <li>Hands & Feet</li>
-                                </ul>
-                            </div>
-                            <a href="#" class="shortcode_button">Buy Now</a>
-                        </div>
-                        <div class="price-item optimal">
-                            <div class="type">Overnight Tour Travel Package</div>
-                            <div class="pricelist">$200 month</div>
-                            <div class="cont">
-                                <ul>
-                                    <li>Deluxe accommodation</li>
-                                    <li>Hot Stones flys</li>
-                                    <li>Body Style Hotels</li>
-                                    <li>Hydrohotel</li>
-                                    <li>Hands & Feet</li>
-                                </ul>
-                            </div>
-                            <a href="#" class="shortcode_button">Buy Now</a>
-                        </div>
-                        <div class="price-item">
-                            <div class="type">Three Nights Package</div>
-                            <div class="pricelist">$300 month</div>
-                            <div class="cont">
-                                <ul>
-                                    <li>Deluxe accommodation</li>
-                                    <li>Hot Stones flys</li>
-                                    <li>Body Style Hotels</li>
-                                    <li>Hydrohotel</li>
-                                    <li>Hands & Feet</li>
-                                </ul>
-                            </div>
-                            <a href="#" class="shortcode_button">Buy Now</a>
-                        </div>
-                    </div>
-                </div>
-            </section>
+            
 
             <section class="page_section">
                 <div class="container block-wrap wow fadeInUp">
@@ -1001,7 +891,6 @@
                         </div>
                     </div>
                 </div>
-                <!-- end .container -->
             </section>
 
             <section class="page_section" id="contact">
@@ -1075,12 +964,12 @@
                 <!-- end .container -->
             </section>
 
-            <section class="page_section" id="registration">
-                <div class="container block-wrap wow fadeInUp"  ng-controller="rctrl">
+            <section class="page_section" id="registration"  ng-controller="rctrl">
+                <div class="container block-wrap wow fadeInUp" ng-show="visible" >
                     <div class="row" style="margin-top: 6%;">
                         {{sinupController}}
-                        <div class="col-md-12">
-                            <div class="contact_form block">
+                        <div class="col-md-12 contact_form block">
+                            <div class="">
                                 <div class="row">
                                     <div class="col-md-12 col-sm-12">
                                         <div id="notes"><strong>Sign  </strong>Up</div>
@@ -1089,7 +978,6 @@
 
                                 <div class="clear"></div>
                                 <div id="fieldRegistration">
-                                    <%--<form id="ajax-contact-forms" class="row" action="#">--%>
                                         <div class="col-md-4 col-sm-4">
                                             <input class="inp" type="text" name="Name" ng-model="Name" placeholder="Name" title="Name">
                                         </div>
@@ -1122,7 +1010,6 @@
                                             <input class="shortcode_button" type="button" value="Sign Up" ng-click="Register()">
                                         </div>
                                         <div ng-show="message" style="color: #20bf04; text-align: center; font-size: 20px; font-weight: 300;">Congrates! You have successfully registered</div>
-                                    <%--</form>--%>
                                 </div>
                             </div>
                         </div>
@@ -1131,7 +1018,7 @@
                 </div>
             </section>
 
-            <section class="page_section" id="login">
+            <section class="page_section" id="login" runat="server">
                 <div class="container block-wrap wow fadeInUp" style="margin-top: 4%;">
                     <div class="row">
 
@@ -1139,7 +1026,7 @@
                             <div class="contact_form block booking-item">
                                 <div class="row">
                                     <div class="col-md-12 col-sm-12">
-                                        <div id="logintext"><strong>Log  </strong>In</div>
+                                        <div id="logintext" ><strong>Log  </strong>In</div>
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>

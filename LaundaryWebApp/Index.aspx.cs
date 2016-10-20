@@ -12,20 +12,27 @@ namespace LaundaryWebApp
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
-            {
-                Session["IsValid"] = null;
-                li_Order.Visible = false;
-                order.Visible = false;
-            }
+                UserLogout();
         }
 
 
 
         protected void btn_login_ServerClick(object sender, EventArgs e)
         {
-            Session["IsValid"] = 1;
-            li_Order.Visible = true;
-            order.Visible = true;
+            UserLogIn();
+        }      
+
+        protected void onLogout_ServerClick(object sender, EventArgs e)
+        {
+            UserLogout();
+        }
+        private void UserLogout()
+        {
+            hdnSession.Value = "";
+        }
+        private void UserLogIn()
+        {
+            hdnSession.Value = "1";
         }
     }
 }
